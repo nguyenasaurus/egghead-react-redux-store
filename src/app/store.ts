@@ -7,4 +7,7 @@ export const store = configureStore({
     cart: cartReducer,
     products: productsReducer
   }
-})
+});
+
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
