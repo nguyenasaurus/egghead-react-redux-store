@@ -16,12 +16,17 @@ export function Cart() {
     dispatch(updateQuantity({ id, quantity }));
   }
 
+  function onCheckout(e: React.FocusEvent<HTMLFormElement>) {
+    e.preventDefault();
+    dispatch({ type: "cart/checkout/pending"})
+  }
+
   const tableClasses = classNames({
     [styles.table]: true,
     [styles.checkoutError]: checkoutState === "ERROR",
     [styles.checkoutLoading]: checkoutState === "LOADING",
   });
-  console.log(checkoutState === "LOADING",)
+
   return (
     <main className="page">
       <h1>Shopping Cart</h1>
@@ -59,7 +64,7 @@ export function Cart() {
           </tr>
         </tfoot>
       </table>
-      <form>
+      <form onSubmit={onCheckout}>
         <button className={styles.button} type="submit">
           Checkout
         </button>
