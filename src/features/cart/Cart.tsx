@@ -19,7 +19,7 @@ export function Cart() {
 
   function onCheckout(e: React.FocusEvent<HTMLFormElement>) {
     e.preventDefault();
-    dispatch(checkoutCart(items));
+    dispatch(checkoutCart());
   }
 
   const tableClasses = classNames({
