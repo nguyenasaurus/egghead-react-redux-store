@@ -14,7 +14,7 @@ const productsSlice = createSlice({
   initialState,
   name: "products",
   reducers: {
-    receivedProducts(state, action: PayloadAction<Product[]>) {
+    productsRecieved(state, action: PayloadAction<Product[]>) {
       const products = action.payload;
       products.forEach((product) => {
         state.products[product.id] = product;
@@ -23,5 +23,5 @@ const productsSlice = createSlice({
   },
 });
 
-export const { receivedProducts } = productsSlice.actions;
+export const { productsRecieved } = productsSlice.actions;
 export default productsSlice.reducer;

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
-import { receivedProducts } from "./productsSlice";
+import { productsRecieved } from "./productsSlice";
 import { addToCart } from "../cart/cartSlice";
 import { getProducts } from "../../app/api";
 import styles from "./Products.module.css";
@@ -9,7 +9,7 @@ export function Products() {
   const dispatch = useAppDispatch();
   useEffect(() => {
     getProducts().then((products) => {
-      dispatch(receivedProducts(products));
+      dispatch(productsRecieved(products));
     });
   }, []);
   const products = useAppSelector(state => state.products.products);
